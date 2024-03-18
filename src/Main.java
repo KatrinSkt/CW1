@@ -3,9 +3,10 @@ import java.util.Arrays;
 public class Main {
     public static Employee[] employees = new Employee[10];
 
-    public static void printEmployee(Employee[] employees, int i) {
-        System.out.print("id " + employees[i].getId() + ", ");
-        System.out.print("Сотрудник: " + employees[i].getName() + " " + employees[i].getMiddleName() + " " + employees[i].getSurname() + ", отдел: " + employees[i].getDepartment() + " , заработная плата: " + employees[i].getSalary());
+    public static void printEmployee() {
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
     }
 
     public static double countSumSalary() {
@@ -62,7 +63,7 @@ public class Main {
 
     public static void printFullName() {
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null){
+            if (employees[i] != null) {
                 System.out.println(employees[i].getName() + " " + employees[i].getMiddleName() + " " + employees[i].getSurname());
             }
         }
@@ -81,16 +82,15 @@ public class Main {
         employees[9] = new Employee("Наталья", "Анатольевна", "Сивергина", 5, 48000);
 
         System.out.println(Arrays.toString(employees));
-        double totalSalary = Main.countSumSalary();
+        double totalSalary = countSumSalary();
         System.out.println("Сумма затрат на ЗП в месяц = " + totalSalary);
-        Employee personWithMinSalary = Main.findPersonWithMinSalary();
+        Employee personWithMinSalary = findPersonWithMinSalary();
         System.out.println("Сотрудник с минимальной ЗП - " + personWithMinSalary);
-        Employee personWithMaxSalary = Main.findPersonWithMaxSalary();
+        Employee personWithMaxSalary = findPersonWithMaxSalary();
         System.out.println("Сотрудник с максимальной ЗП - " + personWithMaxSalary);
-        double middleSalary = Main.countMiddleSalary();
+        double middleSalary = countMiddleSalary();
         System.out.println("Среднее значение зарплат = " + middleSalary);
-        Main.printFullName();
-
+        printFullName();
 
 
     }

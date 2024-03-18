@@ -6,28 +6,17 @@ public class Employee {
     private final String surname;
     private int department;
     private double salary;
-    private int id;
+    private final int id;
     private static int counter = 1;
 
     public Employee(String name, String middleName, String surname, int department, double salary) {
+        this.id = counter++;
         this.name = name;
         this.middleName = middleName;
         this.surname = surname;
         this.department = department;
         this.salary = salary;
-        id = counter++;
-    }
 
-    public static void checkDepartment(int department) {
-        if (department < 1 || department > 5) {
-            throw new RuntimeException("Поле отдел заполнено не корректно");
-        }
-    }
-
-    public static void checkSalary(double salary) {
-        if (salary < 0) {
-            throw new RuntimeException("Поле заработная плата заполнено не корректно");
-        }
     }
 
     public String getName() {
@@ -63,10 +52,6 @@ public class Employee {
         return id;
     }
 
-    public static int getCounter() {
-        return counter;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,7 +67,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Сотрудник: " + name + " " + middleName + " " + surname + ", отдел: " + department +
+        return "id= " + id + ", Сотрудник: " + name + " " + middleName + " " + surname + ", отдел: " + department +
                 ", заработная плата = " + salary;
     }
 }
